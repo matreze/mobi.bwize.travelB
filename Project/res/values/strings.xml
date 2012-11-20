@@ -1,0 +1,31 @@
+<resources>
+
+    <string name="app_name">travelB</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="button_addtrip">Add New Trip</string>
+    <string name="button_temp">Temporary Button to lists</string>
+    <string name="button_inserttrip">Add this Trip</string>
+    <string name="button_cancel">Cancel entry</string>
+    <string name="button_chosedate">Select departure date</string>
+    <string name="button_chosedate2">Select return date</string>
+    <string name="button_chosetime">Select time</string>
+    <string name="button_chosetime2">Select return date</string>
+    <string name="text_leaving_from">Leaving from</string>
+    <string name="text_outgoing">Outgoing details</string>
+    <string name="text_incoming">Return details</string>
+    <string name="text_going_to">Going to</string>
+    <string name="connection_yes">Yes</string>
+    <string name="connection_no">No</string>
+    <string name="text_connections">Do you have more than one connection?</string>
+    <string name="text_comments">Extra stuff that you need to know</string>
+    <string name="text_notification">Do you want to recieve notifications?</string>
+    <string name="countdownto">in...  </string>
+    <string name="destination_name">Japan</string>
+    <string name="weather">Weather is </string>
+    <string name="temp">Temperature is </string>
+    
+    
+
+</resources>

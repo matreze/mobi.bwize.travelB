@@ -1,0 +1,44 @@
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Currency Conv"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Amout to Convert"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/curencyInput_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/convertButton_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" 
+            android:onClick="setCurrency"/>
+
+        <TextView
+            android:id="@+id/currency_display_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>

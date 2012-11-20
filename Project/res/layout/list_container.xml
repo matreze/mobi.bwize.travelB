@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addModule"
+            android:text="Button" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bgroundb" >
+
+        <fragment
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/list_fragment"
+            android:name="mobi.bwize.project.TripListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/list_trips" >
+        </fragment>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff" >
+    </LinearLayout>
+
+</LinearLayout>
