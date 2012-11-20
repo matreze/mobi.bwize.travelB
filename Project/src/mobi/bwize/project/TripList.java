@@ -5,9 +5,9 @@ import java.util.prefs.Preferences;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,7 +54,7 @@ TripListFragment.OnListSelectedListener {
 		super.onResume();
 		
 		// Refresh the list cursor every time the view is resumed
-		//MainListFragment.refresh();
+		TripListFragment.refresh();
 	}
 
 	public void refreshUI(){
@@ -77,26 +77,12 @@ TripListFragment.OnListSelectedListener {
 	// method for action to take when an item is selected
 	@Override
 	public void onListSelected(long id) {
-		// instantiate the listviewer fragment with the appropriate layout
-/*		TripListFragment viewer = (TripListFragment) getSupportFragmentManager()
-				.findFragmentById(R.id.view_fragment);
-		
-		// create a new intent if device is a phone, else update main fragment
-		if (viewer == null || !viewer.isInLayout()) {
 			Intent showContent = new Intent(getApplicationContext(),
-					TripListFragment.class);
+					Dashboard.class);
 			// send the list item data
-			showContent.setData(Uri.parse(String.valueOf(id)));
+			showContent.putExtra("ID",String.valueOf(id));
+			Log.d("id",String.valueOf(id));
 			startActivity(showContent);
-			
-		} else {
-		
-			currentID = id;
-			// update the fragment with previously obtained data
-		//	viewer.updateFragment(id);
-			
-		}*/
-	
 	}
 
 	// Method to delete a module - only used in the fragment layout on a tablet
