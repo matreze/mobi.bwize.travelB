@@ -17,12 +17,31 @@ public final class R {
         public static final int back=0x7f020000;
         public static final int bground=0x7f020001;
         public static final int bgroundb=0x7f020002;
-        public static final int currency=0x7f020003;
-        public static final int go=0x7f020004;
-        public static final int ic_action_search=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int weather=0x7f020007;
-        public static final int wikipedia=0x7f020008;
+        public static final int chanceflurries=0x7f020003;
+        public static final int chancerain=0x7f020004;
+        public static final int chancesleet=0x7f020005;
+        public static final int chancesnow=0x7f020006;
+        public static final int chancetstorms=0x7f020007;
+        public static final int clear=0x7f020008;
+        public static final int cloudy=0x7f020009;
+        public static final int currency=0x7f02000a;
+        public static final int flurries=0x7f02000b;
+        public static final int fog=0x7f02000c;
+        public static final int go=0x7f02000d;
+        public static final int hazy=0x7f02000e;
+        public static final int ic_action_search=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
+        public static final int mostlycloudy=0x7f020011;
+        public static final int mostlysunny=0x7f020012;
+        public static final int partlycloudy=0x7f020013;
+        public static final int partlysunny=0x7f020014;
+        public static final int rain=0x7f020015;
+        public static final int sleet=0x7f020016;
+        public static final int snow=0x7f020017;
+        public static final int sunny=0x7f020018;
+        public static final int tstorms=0x7f020019;
+        public static final int weather=0x7f02001a;
+        public static final int wikipedia=0x7f02001b;
     }
     public static final class id {
         public static final int ScrollView01=0x7f08000b;
