@@ -95,7 +95,7 @@ public class WeatherTenDay extends ListActivity {
 					HashMap<String, String> map = new HashMap<String, String>();
 
 					int imageResource = getResources().getIdentifier(icon,
-							"drawable", "mobi.bwize.tendayweathertest");
+							"drawable", "mobi.bwize.project");
 					Log.d("icon", icon);
 					Log.d("day", day);
 					Log.d("forecast", forecast);
