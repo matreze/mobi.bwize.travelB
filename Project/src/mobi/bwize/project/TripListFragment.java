@@ -3,6 +3,7 @@ package mobi.bwize.project;
 import java.sql.SQLException;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
@@ -56,7 +57,7 @@ public class TripListFragment extends ListFragment {
     }
     // What to do when an item is selected and use the id from that item
     public interface OnListSelectedListener {
-        public void onListSelected(long id);
+        public void onListSelected(long id); 
     }
 
     
