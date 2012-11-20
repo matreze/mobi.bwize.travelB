@@ -32,6 +32,11 @@
             android:name=".WikiView">
             
         </activity>
+        
+        <activity
+            android:name=".Dashboard">
+            
+        </activity>
     </application>
 
 </manifest>

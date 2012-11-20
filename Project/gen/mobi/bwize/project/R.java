@@ -26,7 +26,7 @@ public final class R {
     }
     public static final class id {
         public static final int ScrollView01=0x7f08000b;
-        public static final int addNewModule=0x7f080033;
+        public static final int addNewModule=0x7f08003a;
         public static final int button1=0x7f080009;
         public static final int button_addtrip_xml=0x7f08002f;
         public static final int button_cancel_xml=0x7f080030;
@@ -44,19 +44,23 @@ public final class R {
         public static final int departure_flight_xml=0x7f080010;
         public static final int destination_city_xml=0x7f08001c;
         public static final int destination_country_xml=0x7f08001b;
-        public static final int fcttext_metric=0x7f080035;
+        public static final int fcttext_metric=0x7f08003c;
         public static final int feelsLike_view=0x7f080008;
         public static final int going_to_xml=0x7f08001a;
-        public static final int icon=0x7f080036;
-        public static final int iv_forward=0x7f08003b;
+        public static final int icon=0x7f08003d;
+        public static final int imageButton_back=0x7f080031;
+        public static final int imageButton_currency=0x7f080037;
+        public static final int imageButton_weather=0x7f080035;
+        public static final int imageButton_wiki=0x7f080036;
+        public static final int iv_forward=0x7f080042;
         public static final int leaving_from_xml=0x7f08000c;
         public static final int linearLayout1=0x7f08000d;
         public static final int linearLayout2=0x7f08001d;
         public static final int linearLayout3=0x7f080011;
         public static final int linearLayout6=0x7f080021;
         public static final int linearLayout7=0x7f08002e;
-        public static final int list_fragment=0x7f080031;
-        public static final int menu_settings=0x7f08003c;
+        public static final int list_fragment=0x7f080038;
+        public static final int menu_settings=0x7f080043;
         public static final int notification_no=0x7f08002d;
         public static final int notification_yes=0x7f08002c;
         public static final int notifications_xml=0x7f08002b;
@@ -70,19 +74,22 @@ public final class R {
         public static final int return_flight_connection_xml=0x7f080025;
         public static final int return_flight_connection_yes=0x7f080026;
         public static final int return_flight_xml=0x7f080020;
-        public static final int rlt_main=0x7f080037;
-        public static final int tableRow1=0x7f080032;
+        public static final int rlt_main=0x7f08003e;
+        public static final int tableRow1=0x7f080039;
         public static final int temp_view=0x7f080006;
         public static final int textView1=0x7f080000;
         public static final int textView3=0x7f080001;
         public static final int text_comments=0x7f080028;
+        public static final int text_countdown=0x7f080033;
         public static final int text_dep_connection=0x7f080014;
-        public static final int text_dep_date_xml=0x7f080038;
-        public static final int text_destination_country_xml=0x7f08003a;
-        public static final int text_destination_xml=0x7f080039;
+        public static final int text_dep_date_xml=0x7f08003f;
+        public static final int text_destination_countdown_xml=0x7f080034;
+        public static final int text_destination_country_xml=0x7f080041;
+        public static final int text_destination_name_xml=0x7f080032;
+        public static final int text_destination_xml=0x7f080040;
         public static final int text_notifications=0x7f08002a;
         public static final int text_return_connection=0x7f080024;
-        public static final int title=0x7f080034;
+        public static final int title=0x7f08003b;
         public static final int weather_desc_view=0x7f080005;
         public static final int wikiView_xml=0x7f08000a;
         public static final int wind_string=0x7f080007;
@@ -92,11 +99,12 @@ public final class R {
         public static final int activity_main=0x7f030001;
         public static final int activity_weather_ten_day=0x7f030002;
         public static final int add_trip=0x7f030003;
-        public static final int list_container=0x7f030004;
-        public static final int list_fragment=0x7f030005;
-        public static final int list_item=0x7f030006;
-        public static final int list_trips=0x7f030007;
-        public static final int main=0x7f030008;
+        public static final int dashboard=0x7f030004;
+        public static final int list_container=0x7f030005;
+        public static final int list_fragment=0x7f030006;
+        public static final int list_item=0x7f030007;
+        public static final int list_trips=0x7f030008;
+        public static final int main=0x7f030009;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;
