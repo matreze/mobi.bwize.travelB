@@ -214,7 +214,7 @@ public class Trip_Database {
 		c = tripsDatabase.query(DATABASE_TABLE, columns, null, null, null,
 				null, null);
 
-		int itripcode = c.getColumnIndex(KEY_TRIP_ID);
+	/*	int itripcode = c.getColumnIndex(KEY_TRIP_ID);
 		int idestination_country = c.getColumnIndex(KEY_DESTINATION_COUNTRY);
 		
 
@@ -226,7 +226,7 @@ public class Trip_Database {
 			dashboardinfo_trips.add(row);
 		}
 
-		// c.close();
+		// c.close();*/
 
 		return c;
 	}
