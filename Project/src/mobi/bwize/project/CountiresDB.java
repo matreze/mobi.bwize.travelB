@@ -83,7 +83,7 @@ public class CountiresDB extends SQLiteOpenHelper {
 		}
 		return exist;
 	}
-
+	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub

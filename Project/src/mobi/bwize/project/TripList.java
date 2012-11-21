@@ -78,7 +78,7 @@ TripListFragment.OnListSelectedListener {
 	@Override
 	public void onListSelected(long id) {
 			Intent showContent = new Intent(getApplicationContext(),
-					Dashboard.class);
+					DashBoardActivity.class);
 			// send the list item data
 			showContent.putExtra("ID",String.valueOf(id));
 			Log.d("id",String.valueOf(id));

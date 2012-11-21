@@ -4,12 +4,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class CurrencyConv extends Activity {
@@ -25,6 +30,9 @@ public class CurrencyConv extends Activity {
 	private EditText editText;
 	private JSONObject info;
 	private Boolean isEmpty = false;
+	
+	private Cursor cursor;
+	private SQLiteDatabase countries;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -32,8 +40,11 @@ public class CurrencyConv extends Activity {
 		setContentView(R.layout.activity_currency_conv);
 
 		JSONParse jParser = new JSONParse();
-		inputCurrency = "EUR";
-		outputCurrency = "ZAR";
+		
+		Intent intent = getIntent();
+		
+		outputCurrency= getCurrency(intent.getStringExtra("countryDest"));
+		 inputCurrency = getCurrency(intent.getStringExtra("countryDep"));
 
 		editText = (EditText) findViewById(R.id.curencyInput_xml);
 
@@ -97,5 +108,17 @@ public class CurrencyConv extends Activity {
 		}
 	}
 
+	String getCurrency(String country){
+		CountiresDB helper = new CountiresDB(this);
+		countries = helper.getWritableDatabase();
 	
+		cursor = countries.query("tblCountries", new String[] { "currency_code",
+				BaseColumns._ID }, "country_name='"+country+"'", null, null, null, null);
+		
+		cursor.moveToFirst();
+		String currencyCode=cursor.getString(cursor.getColumnIndex("currency_code"));
+		helper.close();
+		return currencyCode;
+		
+	}
 }

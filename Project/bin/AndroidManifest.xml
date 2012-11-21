@@ -37,6 +37,18 @@
             android:name=".Dashboard">
             
         </activity>
+        <activity
+            android:name=".DashBoardActivity">
+            
+        </activity>
+        <activity
+            android:name=".WeatherTenDay">
+            
+        </activity>
+        <activity
+            android:name=".CurrencyConv">
+            
+        </activity>
     </application>
 
 </manifest>
