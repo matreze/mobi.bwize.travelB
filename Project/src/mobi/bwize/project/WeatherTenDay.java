@@ -8,10 +8,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
 
@@ -43,10 +43,11 @@ public class WeatherTenDay extends ListActivity {
 
 		ArrayList<HashMap<String, String>> weatherList = new ArrayList<HashMap<String, String>>();
 
-		// TODO get db info
-		String Country = "South_Africa";
+		Intent intent=getIntent();
+		
+		String Country = intent.getStringExtra("Country");
 
-		String City = "Margate";
+		String City = intent.getStringExtra("City");
 
 		SharedPreferences.Editor editor = getPreferences(0).edit();
 		// Creating JSON Parser instance
