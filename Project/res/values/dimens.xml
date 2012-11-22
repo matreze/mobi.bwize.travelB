@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textMarginLeft">10dp</dimen>
+    <dimen name="margin_check_box">10dp</dimen>
 </resources>

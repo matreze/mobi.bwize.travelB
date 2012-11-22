@@ -6,7 +6,8 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="15" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -18,36 +19,22 @@
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-    </activity>
-        <activity
-            android:name=".AddTrip">
-            
         </activity>
-            
-       
-        <activity
-            android:name=".WikiView">
-            
+        <activity android:name=".AddTrip" >
         </activity>
-        
-        <activity
-            android:name=".Dashboard">
-            
+        <activity android:name=".WikiView" >
         </activity>
-        <activity
-            android:name=".DashBoardActivity">
-            
+        <activity android:name=".Dashboard" >
         </activity>
-        <activity
-            android:name=".WeatherTenDay">
-            
+        <activity android:name=".DashBoardActivity" >
         </activity>
-        <activity
-            android:name=".CurrencyConv">
-            
+        <activity android:name=".WeatherTenDay" >
+        </activity>
+        <activity android:name=".CurrencyConv" >
+        </activity>
+        <activity android:name=".ViewDetails" >
         </activity>
     </application>
 

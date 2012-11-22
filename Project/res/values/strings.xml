@@ -7,7 +7,9 @@
     <string name="button_addtrip">Add New Trip</string>
     <string name="button_temp">Temporary Button to lists</string>
     <string name="button_inserttrip">Add this Trip</string>
+    <string name="button_updatetrip">Update this Trip</string>
     <string name="button_cancel">Cancel entry</string>
+	<string name="button_delete">Delete this Trip</string>
     <string name="button_chosedate">Select departure date</string>
     <string name="button_chosedate2">Select return date</string>
     <string name="button_chosetime">Select time</string>
@@ -25,6 +27,8 @@
     <string name="destination_name">Japan</string>
     <string name="weather">Weather is </string>
     <string name="temp">Temperature is </string>
+    <string name="text_back">Back</string>
+    <string name="text_go">View trip details</string>
     
     
 
