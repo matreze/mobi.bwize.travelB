@@ -3,6 +3,7 @@ package mobi.bwize.project;
 import java.util.prefs.Preferences;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -22,14 +23,15 @@ TripListFragment.OnListSelectedListener {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		String string;
+		super.onCreate(savedInstanceState);
 		
-		Trip_Database helper = new Trip_Database(this);
-		
-
+		//String string;
+		//Trip_Database helper = new Trip_Database(this);
 		
 		//setTheme(themeResource);
-		super.onCreate(savedInstanceState);
+		
+		
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		// Set the orientation, based on screen size
 		/*if (isScreenLarge()) {
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
