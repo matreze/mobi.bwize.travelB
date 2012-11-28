@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical" > 
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgroundb"
+        android:orientation="vertical" >
+        
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >              
+
+    <ImageButton android:layout_width="wrap_content" 
+        android:id="@+id/imageButton_back" 
+        android:src="@drawable/back" 
+        android:layout_height="wrap_content"
+        android:background="@null" />
+    
+     <TextView
+        android:id="@+id/text_trip_name_xml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:text="trip" />
+     </LinearLayout>
+
+        <TextView
+            android:id="@+id/leaving_from_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_outgoing" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/departure_date_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="40dip"
+                android:hint="Departure date"
+                android:inputType="date"
+                android:minWidth="20dip"
+                android:text=""
+                android:width="150dip" >
+            </EditText>
+
+            <Button
+                android:id="@+id/pick_departure_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="40dip"
+                android:onClick="selectDate"
+                android:text="@string/button_chosedate" >
+            </Button>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/departure_flight_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Flight No." />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/dep_time_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/textMarginLeft"
+                android:layout_weight="2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/pick_departure_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:height="40dip"
+                android:onClick="depSet"
+                android:text="@string/button_chosetime" >
+            </Button>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_dep_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_connections" />
+
+        <RadioGroup
+            android:id="@+id/dep_flight_connection_xml"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/dep_flight_connection_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/connection_yes" />
+
+            <RadioButton
+                android:id="@+id/dep_flight_connection_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/connection_no" />
+        </RadioGroup>
+
+       <TextView
+            android:id="@+id/leaving_from_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_leaving_from" />
+
+        <TextView
+            android:id="@+id/departure_country_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallMargin"
+            android:hint="Country of departure"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/departure_city_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallMargin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:hint="City of departure" />
+
+        <TextView
+            android:id="@+id/going_to_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_going_to" />
+
+        <TextView
+            android:id="@+id/destination_country_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallMargin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:hint="Destination country" />
+
+        <TextView
+            android:id="@+id/destination_city_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallMargin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:hint="Destination city" />
+
+        <TextView
+            android:id="@+id/going_to_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_incoming" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/return_date_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="40dip"
+                android:hint="Return date"
+                android:inputType="date"
+                android:minWidth="20dip"
+                android:text=""
+                android:width="150dip" >
+            </EditText>
+
+            <Button
+                android:id="@+id/pick_return_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="40dip"
+                android:onClick="selectDate2"
+                android:text="@string/button_chosedate2" >
+            </Button>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/return_flight_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Flight No." />
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/ret_time_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/textMarginLeft"
+                android:layout_weight="2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/pick_return_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:height="40dip"
+                android:onClick="retSet"
+                android:text="@string/button_chosetime" >
+            </Button>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_return_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_connections" />
+
+        <RadioGroup
+            android:id="@+id/return_flight_connection_xml"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/return_flight_connection_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/connection_yes" />
+
+            <RadioButton
+                android:id="@+id/return_flight_connection_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/connection_no" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/text_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_comments" />
+
+        <EditText
+            android:id="@+id/comments_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/text_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_notification" />
+
+        <RadioGroup
+            android:id="@+id/notifications_xml"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/notification_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/connection_yes" />
+
+            <RadioButton
+                android:id="@+id/notification_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/connection_no" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/button_updatetrip_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="saveTrip"
+                android:text="@string/button_updatetrip" />
+
+            <Button
+                android:id="@+id/button_delete_xml"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_delete" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

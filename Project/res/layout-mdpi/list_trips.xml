@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:padding="5dp"
+    android:layout_height="50dp" android:id="@+id/rlt_main"
+    android:background="#cc9900">
+
+     
+     
+  <TextView 
+      android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/text_dep_date_xml"
+       android:text="Date" 
+       android:layout_centerVertical="true"></TextView>
+  
+  <TextView 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" 
+      android:text="Dest"
+      android:id="@+id/text_destination_xml" 
+      android:layout_centerVertical="true"
+      android:layout_toRightOf="@+id/text_dep_date_xml" 
+      android:layout_marginLeft="10dp"></TextView>
+  
+  <TextView 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" 
+      android:text="Country"
+      android:id="@+id/text_destination_country_xml" 
+      android:layout_centerVertical="true"
+      android:layout_toRightOf="@+id/text_destination_xml" 
+      android:layout_marginLeft="10dp"></TextView>
+  
+  <ImageView 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" 
+      android:layout_centerVertical="true"
+      android:id="@+id/iv_forward" 
+      android:background="@drawable/go"
+      android:layout_alignParentRight="true"></ImageView>
+     
+     
+   </RelativeLayout>  
+     
