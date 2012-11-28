@@ -2,4 +2,5 @@
 <resources>
     <dimen name="textMarginLeft">10dp</dimen>
     <dimen name="margin_check_box">10dp</dimen>
+    <dimen name="smallMargin">5dp</dimen>
 </resources>

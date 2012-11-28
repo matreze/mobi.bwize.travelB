@@ -10,11 +10,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.BaseColumns;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CurrencyConv extends Activity {
@@ -33,6 +32,7 @@ public class CurrencyConv extends Activity {
 	
 	private Cursor cursor;
 	private SQLiteDatabase countries;
+	ImageButton backButton;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,16 @@ public class CurrencyConv extends Activity {
 		editText = (EditText) findViewById(R.id.curencyInput_xml);
 
 		SharedPreferences.Editor editor = getPreferences(0).edit();
+		
+		
+		backButton = (ImageButton)this.findViewById(R.id.imageButton_back);
+		backButton.setOnClickListener(new OnClickListener() {
+		  //@Override
+		  public void onClick(View v) {
+		    finish();
+		  }
+		});
+		
 
 		if (InternetStatus.getInstance(this).isOnline(this)) {
 

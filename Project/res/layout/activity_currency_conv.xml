@@ -2,20 +2,44 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:background="@drawable/bgroundb"
+        android:padding="10dp" >
+        
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:padding="10dp" >
+
+        <ImageButton
+            android:id="@+id/imageButton_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Currency Conv"
+            android:layout_centerHorizontal="true"
+            android:text="@string/text_currencytitle"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+
+        
+    </RelativeLayout> 
+
+
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter Amout to Convert"
+            android:text="@string/text_currencyenter"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
@@ -32,7 +56,7 @@
             android:id="@+id/convertButton_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" 
+            android:text="@string/button_convert" 
             android:onClick="setCurrency"/>
 
         <TextView

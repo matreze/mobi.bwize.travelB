@@ -133,9 +133,8 @@ public class Trip_Database {
 		cv.put(KEY_DEPARTURE_FLIGHT_CONNECTION, departure_connection);
 		cv.put(KEY_VACCINATION, vaccination);
 		cv.put(KEY_VISA, visa);
-
+		cv.put(KEY_RETURN_CITY, return_city);
 		cv.put(KEY_RETURN_COUNTRY, return_country);
-		cv.put(KEY_RETURN_FLIGHT_CODE, return_city);
 		cv.put(KEY_RETURN_FLIGHT_CODE, return_flight_code);
 		cv.put(KEY_RETURN_DATE, return_date);
 		cv.put(KEY_RETURN_TIME, return_time);
@@ -230,6 +229,17 @@ public class Trip_Database {
 
 		return c;
 	}
+	
+	public Cursor checkIfExists(int id) {
+
+		String[] columns = new String[] { KEY_DEPARTURE_DATE,
+				KEY_DESTINATION_CITY, KEY_DESTINATION_COUNTRY, KEY_TRIP_ID };
+
+		c = tripsDatabase.query(DATABASE_TABLE, columns, KEY_TRIP_ID+"="+id, null, null,
+				null, null);
+
+		return c;
+	}
 
 	/*
 	 * function Trip_Database getTripDetails retrieving all columns for the
@@ -264,6 +274,7 @@ public class Trip_Database {
 	 */
 	public void deleteEntry(int trip_id) throws SQLException {
 
+		Log.d("deleting",Integer.toString(trip_id));
 		tripsDatabase.delete(DATABASE_TABLE, KEY_TRIP_ID + "=" + trip_id, null);
 
 	}
@@ -299,6 +310,7 @@ public class Trip_Database {
 
 		tripsDatabase.update(DATABASE_TABLE, values, KEY_TRIP_ID + "="
 				+ trip_id, null);
+
 	}
 
 	// function fet_Destination return the country and the city of the

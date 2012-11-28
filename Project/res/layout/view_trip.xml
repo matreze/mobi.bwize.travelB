@@ -127,18 +127,20 @@
             android:layout_height="wrap_content"
             android:text="@string/text_leaving_from" />
 
-        <Spinner
+       <TextView
             android:id="@+id/departure_country_xml"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Country of departure" />
+            android:layout_margin="@dimen/smallMargin"
+            android:hint="Country of departure"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Spinner
+        <TextView
             android:id="@+id/departure_city_xml"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_margin="@dimen/smallMargin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:hint="City of departure" />
 
         <TextView
@@ -147,18 +149,20 @@
             android:layout_height="wrap_content"
             android:text="@string/text_going_to" />
 
-        <Spinner
+        <TextView
             android:id="@+id/destination_country_xml"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_margin="@dimen/smallMargin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:hint="Destination country" />
 
-        <Spinner
+        <TextView
             android:id="@+id/destination_city_xml"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_margin="@dimen/smallMargin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:hint="Destination city" />
 
         <TextView
@@ -299,6 +303,7 @@
                 android:id="@+id/button_updatetrip_xml"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="saveTrip"
                 android:text="@string/button_updatetrip" />
 
             <Button

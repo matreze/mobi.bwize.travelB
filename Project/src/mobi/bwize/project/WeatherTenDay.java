@@ -12,6 +12,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
 
@@ -32,7 +35,7 @@ public class WeatherTenDay extends ListActivity {
 	static final String KEY_FORECAST_TEXT_METRIC = "fcttext_metric";
 
 	private Boolean isEmpty = false;
-
+	ImageButton backButton;
 	// contacts JSONArray
 	JSONArray array = null;
 
@@ -133,6 +136,13 @@ public class WeatherTenDay extends ListActivity {
 
 		setListAdapter(adapter);
 
+		backButton = (ImageButton)this.findViewById(R.id.imageButton_back);
+		backButton.setOnClickListener(new OnClickListener() {
+		  //@Override
+		  public void onClick(View v) {
+		    finish();
+		  }
+		});
 	}
 
 	
