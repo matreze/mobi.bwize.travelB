@@ -116,7 +116,7 @@ public class WeatherTenDay extends ListActivity {
 
 				int imageResource = getResources().getIdentifier(
 						"ic_action_search", "drawable",
-						"mobi.bwize.tendayweathertest");
+						"mobi.bwize.project");
 
 				map.put(KEY_DAY, "No Data");
 				map.put(KEY_ICON, Integer.toString(imageResource));

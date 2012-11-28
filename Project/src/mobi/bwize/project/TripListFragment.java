@@ -19,6 +19,7 @@ public class TripListFragment extends ListFragment {
 	private static final int xml_fields[] = {R.id.text_dep_date_xml, R.id.text_destination_xml,R.id.text_destination_country_xml,  };
 	
 	static CursorAdapter dataSource;
+	Trip_Database db;
 	
     // data to send to click handler
     @Override
@@ -31,7 +32,7 @@ public class TripListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        Trip_Database db = new Trip_Database(getActivity());
+        db = new Trip_Database(getActivity());
 		
         try {
 			db.open();
@@ -74,5 +75,10 @@ public class TripListFragment extends ListFragment {
     public static void refresh(){
     	dataSource.getCursor().requery();
     	
+    }
+    @Override
+    public void onDestroy(){
+    	super.onDestroy();
+    	db.close();
     }
 }

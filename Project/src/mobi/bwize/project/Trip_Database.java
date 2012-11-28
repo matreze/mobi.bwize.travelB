@@ -200,7 +200,7 @@ public class Trip_Database {
 		 * 
 		 * current_trips.add(row); }
 		 */
-		c.close();
+		//c.close();
 		return c;
 	}
 

@@ -9,7 +9,7 @@
     <string name="button_inserttrip">Add this Trip</string>
     <string name="button_updatetrip">Update this Trip</string>
     <string name="button_cancel">Cancel entry</string>
-	<string name="button_delete">Delete this Trip</string>
+    <string name="button_delete">Delete this Trip</string>
     <string name="button_chosedate">Select departure date</string>
     <string name="button_chosedate2">Select return date</string>
     <string name="button_chosetime">Select time</string>
@@ -25,7 +25,7 @@
     <string name="text_connections">Do you have more than one connection?</string>
     <string name="text_comments">Extra stuff that you need to know</string>
     <string name="text_notification">Do you want to recieve notifications?</string>
-    <string name="countdownto"> </string>
+    <string name="countdownto"></string>
     <string name="destination_name">Japan</string>
     <string name="weather">Weather is </string>
     <string name="temp">Temperature is </string>
@@ -37,6 +37,25 @@
     <string name="text_currencyenter">Enter the amount to convert</string>
     <string name="text_todo">To do list</string>
     
+    <string name="alarm_notice">Your flight departures in 4 hours, it\'s time to go to the airport</string>
+    <string name="alarm_notice_title">FLIGHT COMING</string>
     
+    <string name="tip1_title">Bags</string>
+    <string name="tip1">Did you already start to pack your bags?</string>
+    
+    <string name="tip2_title">Tip: Connections</string>
+    <string name="tip2">Tip: Check if the airport that you are going to stop for the connection asks for a visa. Some airports require a transit visa.?</string>
+    
+    <string name="tip3_title">Check-in</string>
+    <string name="tip3">did you checked in? if you have companions, don\'t forget to tell them do to the same. Maybe you could choose seats together.</string>
+    
+    <string name="tip4_title">Checked baggage</string>
+    <string name="tip4">Bag packed already? If not, we have some suggestions: Take clothes that you can easily match, (colors and styles), shoes that you are going to use with any clothes that you take, doing that you avoid taking unnecessary items and you will have a lighter bag. (and maybe some extra space for shopping).Don\'t take anything fragile on the checked bag and put a luggage tag, specially if your bag is black!</string>
+    
+    <string name="tip5_title">Hand Luggage</string>
+    <string name="tip5">Don\'t forget to pack your hand luggage. Include in it the \"survival kit\" (just in case your checked bag gets lost, if you have one): deodorant, toothbrush, toothpaste, comb/brush  and a change of clothes...don\'t forget that for hand luggage you are only allowed 100 ml of liquid per container, and have a look at the size and weight of the bag that you are allowed to take. Camera, phone charger, and documents: passport, boarding pass and vaccination card (if you need one), and money, of course. Also check if you need to change money.</string>
+    
+    <string name="tip6_title">Tip: Accomodation</string>
+    <string name="tip6">did you sorted out your accomodation? hostels are usually very cheap, and if you are travelling with companions that could be great fun, besides being nicer and safer to stay in the same room as someone that you know, but sometimes hostels may demand more luggage because you have to bring your towel, shampoo, soap, hair dryer, etc.t</string>
 
 </resources>
