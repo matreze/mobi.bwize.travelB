@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class CountDown extends Fragment {
     CountDownTimer mCountDownTimer;
     long mMilliseconds = 0; // 60 seconds * 1000 milliseconds
-    SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("w 'Weeks' dd 'Days'   HH:mm:ss 'To go'");
+    SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("'Only'  D 'Days, ' HH' hours, 'mm' min, ' ss' sec To Go'");
     TextView mTextView;
     ViewGroup root;
  
@@ -78,7 +78,7 @@ public class CountDown extends Fragment {
              @Override
              public void onFinish() {
                  mTextView.setText(mSimpleDateFormat.format(0));
-                 //mTextView.setText("Times Up!");
+                 mTextView.setText("Enjoy your Trip!");
              }
 
              @Override

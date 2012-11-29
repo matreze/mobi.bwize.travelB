@@ -21,7 +21,7 @@
  <TextView
   android:id="@+id/text_temp_view"
   style="@style/Weather"
-  android:text="Temerature:" />
+  android:text="@string/temp" />
   <TextView
    android:id="@+id/temp_view"
    style="@style/Weather"
@@ -31,7 +31,7 @@
  <TextView
   android:id="@+id/text_wind_string"
   style="@style/Weather"
-  android:text="Winds:" />
+  android:text="Wind:" />
   <TextView
    android:id="@+id/wind_string"
    style="@style/Weather"

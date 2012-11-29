@@ -3,12 +3,16 @@ package mobi.bwize.project;
 import java.sql.SQLException;
 import java.util.Calendar;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -46,20 +50,18 @@ public class ViewDetails extends FragmentActivity {
 	private EditText activeDateDisplay;
 	private Calendar activeDate;
 
-
 	private TextView countryDest;
 	private TextView cityDest;
 	private TextView countryDep;
 	private TextView cityDep;
-
 
 	private String destCity;
 	private String depCity;
 	private String destCountry;
 	private String depCountry;
 
-	
-	String destData, destDepDate, depFlight, depTime,  returnDate, returnFlight, returnTime, comments;
+	String destData, destDepDate, depFlight, depTime, returnDate, returnFlight,
+			returnTime, comments;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -81,7 +83,7 @@ public class ViewDetails extends FragmentActivity {
 		setCurrentTimeOnView();
 
 		/* capture our View elements for the start date function */
-		txtDest=(TextView) findViewById(R.id.text_trip_name_xml);
+		txtDest = (TextView) findViewById(R.id.text_trip_name_xml);
 		dataToSet = (TextView) findViewById(R.id.dep_time_xml);
 		dataToSet2 = (TextView) findViewById(R.id.ret_time_xml);
 		myEdit = (EditText) findViewById(R.id.departure_date_xml);
@@ -98,13 +100,10 @@ public class ViewDetails extends FragmentActivity {
 		myEditNotification = (RadioGroup) findViewById(R.id.notifications_xml);
 		myInsertTrip = (Button) findViewById(R.id.button_addtrip_xml);
 
-		
-
 		countryDep = (TextView) findViewById(R.id.departure_country_xml);
 		countryDest = (TextView) findViewById(R.id.destination_country_xml);
 		cityDep = (TextView) findViewById(R.id.departure_city_xml);
 		cityDest = (TextView) findViewById(R.id.destination_city_xml);
-		
 
 		/* get the current date */
 		depDate = Calendar.getInstance();
@@ -114,19 +113,60 @@ public class ViewDetails extends FragmentActivity {
 		cancelButton.setOnClickListener(new OnClickListener() {
 			// @Override
 			public void onClick(View v) {
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+						ViewDetails.this);
+				// set title
+				alertDialogBuilder.setTitle("Delete Trip");
 				
-				Trip_Database db = new Trip_Database(ViewDetails.this);
-				Log.d("trying1","");
-				try {
-					db.open();
-					Log.d("trying","");
-					db.deleteEntry(id);
-					db.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				finish();
+				// set dialog message
+				alertDialogBuilder
+						.setMessage(
+								"Are you sure you want to delete this Trip?")
+						.setCancelable(false)
+						// what to do when the yes button is pressed
+						.setPositiveButton("Yes",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,
+											int did) {
+										final ToDoDBHelper helper2 = new ToDoDBHelper(ViewDetails.this);
+										
+										
+										
+										Trip_Database db = new Trip_Database(
+												ViewDetails.this);
+										try {
+											db.open();
+											db.deleteEntry(id);
+											db.close();
+										} catch (SQLException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
+										
+										//TO do list delete
+										SQLiteDatabase database = helper2
+												.getWritableDatabase();
+										database.delete("tblToDo",
+												"trip" + "=" + String.valueOf(id),
+												null);
+										database.close();
+										
+										finish();
+									}
+								})
+						.setNegativeButton("No",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog,
+											int id) {
+										// if this button is clicked, just close
+										// the dialog box and do nothing
+										dialog.cancel();
+									}
+								});
+				// create alert dialog
+				AlertDialog alertDialog = alertDialogBuilder.create();
+				// show it
+				alertDialog.show();
 			}
 		});
 
@@ -153,7 +193,7 @@ public class ViewDetails extends FragmentActivity {
 		updateDisplay(myEdit, depDate);
 		updateDisplay(myEdit2, retDate);
 
-		id=Integer.valueOf(myIntent.getStringExtra("id"));
+		id = Integer.valueOf(myIntent.getStringExtra("id"));
 		destData = myIntent.getStringExtra("City");
 		destDepDate = myIntent.getStringExtra("DepDate");
 		depFlight = myIntent.getStringExtra("DepFlightNo");
@@ -166,24 +206,23 @@ public class ViewDetails extends FragmentActivity {
 		returnFlight = myIntent.getStringExtra("ReturnFlightNo");
 		returnTime = myIntent.getStringExtra("ReturnTime");
 		comments = myIntent.getStringExtra("Comments");
-		
-    	String depTimeParsed=depTime.replaceAll("\\s","");
-    	String[] depTempTime;  	  
-    	  /* delimiter */
-    	String delimiter = ":";
-    	  /* given string will be split by the argument delimiter provided. */
-    	depTempTime = depTimeParsed.split(delimiter);
-       depHour = Integer.parseInt(depTempTime[0]);
-         depMinute = Integer.parseInt(depTempTime[1]);
-		
-         String destTimeParsed=returnTime.replaceAll("\\s","");
-     	String[] destTempTime;  	  
-     	  /* given string will be split by the argument delimiter provided. */
-     	destTempTime = destTimeParsed.split(delimiter);
-        retHour = Integer.parseInt(destTempTime[0]);
-          retMinute = Integer.parseInt(destTempTime[1]);
-		
-          
+
+		String depTimeParsed = depTime.replaceAll("\\s", "");
+		String[] depTempTime;
+		/* delimiter */
+		String delimiter = ":";
+		/* given string will be split by the argument delimiter provided. */
+		depTempTime = depTimeParsed.split(delimiter);
+		depHour = Integer.parseInt(depTempTime[0]);
+		depMinute = Integer.parseInt(depTempTime[1]);
+
+		String destTimeParsed = returnTime.replaceAll("\\s", "");
+		String[] destTempTime;
+		/* given string will be split by the argument delimiter provided. */
+		destTempTime = destTimeParsed.split(delimiter);
+		retHour = Integer.parseInt(destTempTime[0]);
+		retMinute = Integer.parseInt(destTempTime[1]);
+
 		txtDest.setText(destData);
 		myEdit.setText(destDepDate);
 		myEditDepFlightNo.setText(depFlight);
@@ -231,25 +270,14 @@ public class ViewDetails extends FragmentActivity {
 		Trip_Database db = new Trip_Database(this);
 		try {
 			db.open();
-			
 
-			db.updateTrip_byid(id, 
-					destCountry, 
-					destCity,
-					myEditDepFlightNo.getText().toString(), 
-					myEdit.getText().toString(), 
-					departure_time, 
-					departure_connection,
-					null, 
-					null, 
-					depCountry, 
-					depCity,
-					myEditReturnFlightNo.getText().toString(), 
-					myEdit2.getText().toString(), 
-					return_time,
-					return_connection,
-					myEditExtra.getText().toString(),
-					notification_status);
+			db.updateTrip_byid(id, destCountry, destCity, myEditDepFlightNo
+					.getText().toString(), myEdit.getText().toString(),
+					departure_time, departure_connection, null, null,
+					depCountry, depCity, myEditReturnFlightNo.getText()
+							.toString(), myEdit2.getText().toString(),
+					return_time, return_connection, myEditExtra.getText()
+							.toString(), notification_status);
 			db.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -259,10 +287,6 @@ public class ViewDetails extends FragmentActivity {
 		finish();
 
 	}
-
-
-	
-
 
 	private void updateDisplay(EditText dateDisplay, Calendar date) {
 		dateDisplay.setText(new StringBuilder()
@@ -394,5 +418,7 @@ public class ViewDetails extends FragmentActivity {
 		else
 			return "0" + String.valueOf(c);
 	}
+
+
 
 }

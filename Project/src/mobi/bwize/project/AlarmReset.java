@@ -85,7 +85,6 @@ public class AlarmReset extends BroadcastReceiver {
 					destTempTime = destTimeParsed.split(delimiter);
 
 					depYear = Integer.parseInt(depTempDate[2]);
-					;
 					depMonthOfYear = Integer.parseInt(depTempDate[0]);
 					depDayOfMonth = Integer.parseInt(depTempDate[1]);
 					depHour = Integer.parseInt(depTempTime[0]);

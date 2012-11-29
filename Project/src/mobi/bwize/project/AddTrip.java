@@ -257,31 +257,33 @@ public class AddTrip extends FragmentActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		String depDateParsed=myEdit.getText()
-				.toString().replaceAll("\\s","");
-		String destDateParsed=myEdit2.getText()
-				.toString().replaceAll("\\s","");
-    	
-    	String[] depTempDate;
-    	String[] destTempDate;
-    	 
-    	  /* delimiter */
-    	  String delimiter = "-";
-    	  /* given string will be split by the argument delimiter provided. */
-    	  depTempDate = depDateParsed.split(delimiter);
-    	  destTempDate = destDateParsed.split(delimiter);
-    	 		
-		
-		depYear=Integer.parseInt(depTempDate[2]);;
+
+		String depDateParsed = myEdit.getText().toString()
+				.replaceAll("\\s", "");
+		String destDateParsed = myEdit2.getText().toString()
+				.replaceAll("\\s", "");
+
+		String[] depTempDate;
+		String[] destTempDate;
+
+		/* delimiter */
+		String delimiter = "-";
+		/* given string will be split by the argument delimiter provided. */
+		depTempDate = depDateParsed.split(delimiter);
+		destTempDate = destDateParsed.split(delimiter);
+
+		depYear = Integer.parseInt(depTempDate[2]);
+		;
 		depMonthOfYear = Integer.parseInt(depTempDate[0]);
 		depDayOfMonth = Integer.parseInt(depTempDate[1]);
-		
-		retYear=Integer.parseInt(destTempDate[2]);
+
+		retYear = Integer.parseInt(destTempDate[2]);
 		retMonthOfYear = Integer.parseInt(destTempDate[0]);
 		retDayOfMonth = Integer.parseInt(destTempDate[1]);
-		
-		setAlarm();
+
+		if (notification_status.equals("Yes")) {
+			setAlarm();
+		}
 		finish();
 
 	}
@@ -306,44 +308,44 @@ public class AddTrip extends FragmentActivity {
 
 		depcal.setTimeZone(TimeZone.getTimeZone("GMT"));
 		depcal.set((Calendar.YEAR), depYear);
-		depcal.set((Calendar.MONTH), depMonthOfYear-1);
+		depcal.set((Calendar.MONTH), depMonthOfYear - 1);
 		depcal.set((Calendar.DAY_OF_MONTH), depDayOfMonth);
 		depcal.set((Calendar.HOUR_OF_DAY), depHour);
 		depcal.set((Calendar.MINUTE), depMinute);
 		long depTimeInMillis = depcal.getTimeInMillis();
-		
-		Log.d("alarm",Integer.toString((int)depYear));
-		Log.d("alarm",Integer.toString((int)depMonthOfYear));
-		Log.d("alarm",Integer.toString((int)depDayOfMonth));
-		Log.d("alarm",Integer.toString((int)depHour));
-		Log.d("alarm",Integer.toString((int)depMinute));
-		
+
+		Log.d("alarm", Integer.toString((int) depYear));
+		Log.d("alarm", Integer.toString((int) depMonthOfYear));
+		Log.d("alarm", Integer.toString((int) depDayOfMonth));
+		Log.d("alarm", Integer.toString((int) depHour));
+		Log.d("alarm", Integer.toString((int) depMinute));
 
 		Calendar retcal = Calendar.getInstance();
 		retcal.setTimeZone(TimeZone.getTimeZone("GMT"));
 		retcal.set((Calendar.YEAR), retYear);
-		retcal.set((Calendar.MONTH), retMonthOfYear-1);
+		retcal.set((Calendar.MONTH), retMonthOfYear - 1);
 		retcal.set((Calendar.DAY_OF_MONTH), retDayOfMonth);
 		retcal.set((Calendar.HOUR_OF_DAY), retHour);
 		retcal.set((Calendar.MINUTE), retMinute);
 		long retTimeInMillis = retcal.getTimeInMillis();
 
 		/* calculating the time to display the notifications */
-		
+
 		/* notification 0 */
 		// creates a intent for pack bags notification
 		Intent note_pack = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		// puts on the intent the information about the notification
 		note_pack.putExtra("type", "note");
-		note_pack.putExtra("title", getResources().getString(R.string.tip1_title));
+		note_pack.putExtra("title",
+				getResources().getString(R.string.tip1_title));
 		note_pack.putExtra("note", getResources().getString(R.string.tip1));
 		// FLAG_UPDATE_CURRENT > this will send correct extra's informations to
 		// AlarmReceiver Class
 		PendingIntent sender = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, note_pack,
 				PendingIntent.FLAG_ONE_SHOT);
-		
+
 		long tip1Time;
 		AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -360,41 +362,45 @@ public class AddTrip extends FragmentActivity {
 			alarmMgr.set(AlarmManager.RTC_WAKEUP, tip1Time, sender);
 		}
 		/* end of time for notification 0 */
-		
+
 		/* notification 1 */
 		Intent alarmTime = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		alarmTime.putExtra("type", "alarm");
-		alarmTime.putExtra("title", getResources().getString(R.string.alarm_notice_title));
-		alarmTime.putExtra("note",getResources().getString(R.string.alarm_notice));
+		alarmTime.putExtra("title",
+				getResources().getString(R.string.alarm_notice_title));
+		alarmTime.putExtra("note",
+				getResources().getString(R.string.alarm_notice));
 		PendingIntent sender1 = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, alarmTime,
 				PendingIntent.FLAG_ONE_SHOT);
-		
+
 		long tip1;
 		AlarmManager alarmMgr1 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
 		// this tip is going to be displayed 4 hours before the flight
 		tip1 = depTimeInMillis - (hour * 4);
-		Log.d("alarm",Integer.toString((int)depTimeInMillis));
-		Log.d("alarm",Integer.toString((int)System.currentTimeMillis()));
+		Log.d("alarm", Integer.toString((int) depTimeInMillis));
+		Log.d("alarm", Integer.toString((int) System.currentTimeMillis()));
 		if (tip1 > System.currentTimeMillis()) {
 			// set alarm as it is in the future
 			alarmMgr1.set(AlarmManager.RTC_WAKEUP, tip1, sender1);
-			Log.d("alarm",Integer.toString((int)tip1));
+			Log.d("alarm", Integer.toString((int) tip1));
 		}
 		/* end of time for notification 1 */
-		
+
 		/* alarm2 */
 		Intent alarm2Time = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		alarm2Time.putExtra("type", "alarm");
-		alarm2Time.putExtra("title", getResources().getString(R.string.alarm_notice_title));
-		alarm2Time.putExtra("note",getResources().getString(R.string.alarm_notice));
+		alarm2Time.putExtra("title",
+				getResources().getString(R.string.alarm_notice_title));
+		alarm2Time.putExtra("note",
+				getResources().getString(R.string.alarm_notice));
 		PendingIntent sender21 = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, alarm2Time,
 				PendingIntent.FLAG_ONE_SHOT);
-		
+
 		long tip21;
 		AlarmManager alarm2Mgr1 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -405,17 +411,14 @@ public class AddTrip extends FragmentActivity {
 			alarm2Mgr1.set(AlarmManager.RTC_WAKEUP, tip21, sender21);
 		}
 		/* end of time for alarm2 */
-		
-		
-		
+
 		/* notification 2 */
 		Intent note_con = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		note_con.putExtra("type", "note");
-		note_con.putExtra("title", getResources().getString(R.string.tip2_title));
-		note_con.putExtra(
-				"note",
-				getResources().getString(R.string.tip2));
+		note_con.putExtra("title", getResources()
+				.getString(R.string.tip2_title));
+		note_con.putExtra("note", getResources().getString(R.string.tip2));
 		PendingIntent sender2 = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, note_con,
 				PendingIntent.FLAG_ONE_SHOT);
@@ -438,21 +441,18 @@ public class AddTrip extends FragmentActivity {
 			alarmMgr2.set(AlarmManager.RTC_WAKEUP, tip2, sender2);
 		}
 		/* end of time for notification 2 */
-		
 
 		/* notification 3 */
 		Intent note_check = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		note_check.putExtra("type", "note");
-		note_check.putExtra("title", getResources().getString(R.string.tip3_title));
-		note_check
-				.putExtra(
-						"note",
-						getResources().getString(R.string.tip3));
+		note_check.putExtra("title",
+				getResources().getString(R.string.tip3_title));
+		note_check.putExtra("note", getResources().getString(R.string.tip3));
 		PendingIntent sender3 = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, note_check,
 				PendingIntent.FLAG_ONE_SHOT);
-		
+
 		long tip3;
 		AlarmManager alarmMgr3 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -471,19 +471,16 @@ public class AddTrip extends FragmentActivity {
 			alarmMgr3.set(AlarmManager.RTC_WAKEUP, tip3, sender3);
 		}
 		/* end of time for notification 3 */
-		
-		
+
 		/* notification 4 */
 		Intent bag = new Intent(getApplicationContext(), AlarmReceiver.class);
 		bag.putExtra("type", "note");
 		bag.putExtra("title", getResources().getString(R.string.tip4_title));
-		bag.putExtra(
-				"note",
-				getResources().getString(R.string.tip4));
+		bag.putExtra("note", getResources().getString(R.string.tip4));
 		PendingIntent sender4 = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, bag,
 				PendingIntent.FLAG_ONE_SHOT);
-		
+
 		long tip4;
 		AlarmManager alarmMgr4 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -502,25 +499,21 @@ public class AddTrip extends FragmentActivity {
 			alarmMgr4.set(AlarmManager.RTC_WAKEUP, tip4, sender4);
 		}
 		/* end of time for notification 4 */
-		
-		
-		
+
 		/* notification 5 */
 		Intent hand = new Intent(getApplicationContext(), AlarmReceiver.class);
 		hand.putExtra("type", "note");
 		hand.putExtra("title", getResources().getString(R.string.tip5_title));
-		hand.putExtra(
-				"note",
-				getResources().getString(R.string.tip5));
+		hand.putExtra("note", getResources().getString(R.string.tip5));
 		PendingIntent sender5 = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, hand,
 				PendingIntent.FLAG_ONE_SHOT);
-		
+
 		long tip5;
 		AlarmManager alarmMgr5 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
 		if (depHour > 7 && depHour < 22) {
-			// this tip is going to be displayed 6 days before the flight
+			// this tip is going to be displayed 6 hours before the flight
 			tip5 = depTimeInMillis - (hour * 6);
 
 		} else {
@@ -535,20 +528,17 @@ public class AddTrip extends FragmentActivity {
 		}
 		/* end of time for notification 5 */
 
-		
 		/* notification 6 */
 		Intent accomodation = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		accomodation.putExtra("type", "note");
-		accomodation.putExtra("title", getResources().getString(R.string.tip6_title));
-		accomodation
-				.putExtra(
-						"note",
-						getResources().getString(R.string.tip6));
+		accomodation.putExtra("title",
+				getResources().getString(R.string.tip6_title));
+		accomodation.putExtra("note", getResources().getString(R.string.tip6));
 		PendingIntent sender6 = PendingIntent.getBroadcast(
 				getApplicationContext(), inte_id++, accomodation,
 				PendingIntent.FLAG_ONE_SHOT);
-		
+
 		long tip6;
 		AlarmManager alarmMgr6 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -771,12 +761,12 @@ public class AddTrip extends FragmentActivity {
 		else
 			return "0" + String.valueOf(c);
 	}
-	
+
 	@Override
-	protected void onDestroy(){
+	protected void onDestroy() {
 		super.onDestroy();
 		countries.close();
-		
+
 	}
 
 }

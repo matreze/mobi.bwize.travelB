@@ -48,7 +48,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle sav
 		final ToDoDBHelper helper2 = new ToDoDBHelper(getActivity());
 		final long id2=id;
 		// set title
-		alertDialogBuilder.setTitle("Delete Module");
+		alertDialogBuilder.setTitle("Delete ToDo");
 
 		// set dialog message
 		alertDialogBuilder
