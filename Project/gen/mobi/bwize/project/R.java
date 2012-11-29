@@ -232,5 +232,8 @@ public final class R {
     }
     public static final class style {
         public static final int AppTheme=0x7f080000;
+        public static final int Countdown=0x7f080001;
+        public static final int Todo=0x7f080003;
+        public static final int Weather=0x7f080002;
     }
 }

@@ -14,12 +14,8 @@
         
          <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_todo"
-            android:gravity="center_horizontal"
-            android:textColor="#fff"
-            android:textAppearance="?android:attr/textAppearanceSmall" />     
+            style="@style/Todo"
+            android:text="@string/text_todo" />     
 
         <Button
             android:id="@+id/button1"
