@@ -355,14 +355,11 @@ public class AddTrip extends FragmentActivity {
 	private void setAlarm() {
 		// making the Intent id unique using the id as a seed
 		int inte_id = (int) id * 100;
-		// this variables hold the values that will be used to calculate the
-		// time
+		// this variables hold the values that will be used to calculate the time
 		long hour = AlarmManager.INTERVAL_HOUR;
 		long day = AlarmManager.INTERVAL_DAY;
 		long week = AlarmManager.INTERVAL_DAY * 7;
-		// long DepartureTime=depTimeInMillis-(hour*4); - i don't need this
-		// because i will set the -(hour*4) in the notification times
-		// long ReturnTime=retTimeInMillis-(hour*4);
+
 
 		// getting the date and time of departure and return to pass to the
 		// AlarmManager
@@ -374,9 +371,10 @@ public class AddTrip extends FragmentActivity {
 		depcal.set((Calendar.DAY_OF_MONTH), depDayOfMonth);
 		depcal.set((Calendar.HOUR_OF_DAY), depHour);
 		depcal.set((Calendar.MINUTE), depMinute);
+		//getting the departure time in Miliseconds
 		long depTimeInMillis = depcal.getTimeInMillis();
 
-
+		//setting the values grabbed from user input to the variables
 		Calendar retcal = Calendar.getInstance();
 		retcal.setTimeZone(TimeZone.getTimeZone("GMT"));
 		retcal.set((Calendar.YEAR), retYear);
@@ -394,24 +392,22 @@ public class AddTrip extends FragmentActivity {
 				AlarmReceiver.class);
 		// puts on the intent the information about the notification
 		note_pack.putExtra("type", "note");
-		note_pack.putExtra("title",
-				getResources().getString(R.string.tip1_title));
+		note_pack.putExtra("title", getResources().getString(R.string.tip1_title));
 		note_pack.putExtra("note", getResources().getString(R.string.tip1));
-		// FLAG_UPDATE_CURRENT > this will send correct extra's informations to
-		// AlarmReceiver Class
-		PendingIntent sender = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, note_pack,
-				PendingIntent.FLAG_ONE_SHOT);
+		//creates a pending intent that will hand the values to the Alarm Receiver
+		PendingIntent sender = PendingIntent.getBroadcast(getApplicationContext(), 
+		inte_id++, note_pack, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip1Time;
 		AlarmManager alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
+		//this statment says that the notification only will be displayed before 22 and after 7 hours.
 		if (depHour > 7 && depHour < 22) {
 			// this tip is going to be displayed 48 hours before the flight
 			tip1Time = depTimeInMillis - (hour * 48);
 
 		} else {
-			// offset by extra 10 hours so that alarm is during day.
+			// if the time to display the notification is not before 22 and after 7 hours
+			// it will be displayed 10 hours before.
 			tip1Time = depTimeInMillis - (hour * 10);
 		}
 		if (tip1Time > System.currentTimeMillis()) {
@@ -421,21 +417,20 @@ public class AddTrip extends FragmentActivity {
 		/* end of time for notification 0 */
 
 		/* notification 1 */
-		Intent alarmTime = new Intent(getApplicationContext(),
-				AlarmReceiver.class);
+		//create a new intent to this notification
+		Intent alarmTime = new Intent(getApplicationContext(), AlarmReceiver.class);
+		//adds extra information to the intent
 		alarmTime.putExtra("type", "alarm");
-		alarmTime.putExtra("title",
-				getResources().getString(R.string.alarm_notice_title));
-		alarmTime.putExtra("note",
-				getResources().getString(R.string.alarm_notice));
-		PendingIntent sender1 = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, alarmTime,
-				PendingIntent.FLAG_ONE_SHOT);
+		alarmTime.putExtra("title",	getResources().getString(R.string.alarm_notice_title));
+		alarmTime.putExtra("note", getResources().getString(R.string.alarm_notice));
+		//creates the Pending intent to handle the information about this notification
+		PendingIntent sender1 = PendingIntent.getBroadcast(getApplicationContext(), 
+		inte_id++, alarmTime, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip1;
 		AlarmManager alarmMgr1 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
-		// this tip is going to be displayed 4 hours before the flight
+		// this notification is going to be displayed 4 hours before the flight
 		tip1 = depTimeInMillis - (hour * 4);
 		if (tip1 > System.currentTimeMillis()) {
 			// set alarm as it is in the future
@@ -447,13 +442,10 @@ public class AddTrip extends FragmentActivity {
 		Intent alarm2Time = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		alarm2Time.putExtra("type", "alarm");
-		alarm2Time.putExtra("title",
-				getResources().getString(R.string.alarm_notice_title));
-		alarm2Time.putExtra("note",
-				getResources().getString(R.string.alarm_notice));
-		PendingIntent sender21 = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, alarm2Time,
-				PendingIntent.FLAG_ONE_SHOT);
+		alarm2Time.putExtra("title", getResources().getString(R.string.alarm_notice_title));
+		alarm2Time.putExtra("note", getResources().getString(R.string.alarm_notice));
+		PendingIntent sender21 = PendingIntent.getBroadcast(getApplicationContext(), 
+			inte_id++, alarm2Time, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip21;
 		AlarmManager alarm2Mgr1 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -467,15 +459,12 @@ public class AddTrip extends FragmentActivity {
 		/* end of time for alarm2 */
 
 		/* notification 2 */
-		Intent note_con = new Intent(getApplicationContext(),
-				AlarmReceiver.class);
+		Intent note_con = new Intent(getApplicationContext(), AlarmReceiver.class);
 		note_con.putExtra("type", "note");
-		note_con.putExtra("title", getResources()
-				.getString(R.string.tip2_title));
+		note_con.putExtra("title", getResources().getString(R.string.tip2_title));
 		note_con.putExtra("note", getResources().getString(R.string.tip2));
-		PendingIntent sender2 = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, note_con,
-				PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent sender2 = PendingIntent.getBroadcast(getApplicationContext(), 
+			inte_id++, note_con, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip2;
 		AlarmManager alarmMgr2 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -485,7 +474,7 @@ public class AddTrip extends FragmentActivity {
 			tip2 = depTimeInMillis - (day * 30);
 
 		} else {
-			// offset by extra 10 hours so that alarm is during day.
+			// offset by extra 10 hours.
 			tip2 = depTimeInMillis - (hour * 10);
 
 		}
@@ -500,12 +489,10 @@ public class AddTrip extends FragmentActivity {
 		Intent note_check = new Intent(getApplicationContext(),
 				AlarmReceiver.class);
 		note_check.putExtra("type", "note");
-		note_check.putExtra("title",
-				getResources().getString(R.string.tip3_title));
+		note_check.putExtra("title", getResources().getString(R.string.tip3_title));
 		note_check.putExtra("note", getResources().getString(R.string.tip3));
-		PendingIntent sender3 = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, note_check,
-				PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent sender3 = PendingIntent.getBroadcast(getApplicationContext(), 
+			inte_id++, note_check, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip3;
 		AlarmManager alarmMgr3 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -515,7 +502,7 @@ public class AddTrip extends FragmentActivity {
 			tip3 = depTimeInMillis - (hour * 24);
 
 		} else {
-			// offset by extra 10 hours so that alarm is during day.
+			// offset by extra 10 hours.
 			tip3 = depTimeInMillis - (hour * 10);
 
 		}
@@ -531,9 +518,8 @@ public class AddTrip extends FragmentActivity {
 		bag.putExtra("type", "note");
 		bag.putExtra("title", getResources().getString(R.string.tip4_title));
 		bag.putExtra("note", getResources().getString(R.string.tip4));
-		PendingIntent sender4 = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, bag,
-				PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent sender4 = PendingIntent.getBroadcast(getApplicationContext(),
+				 inte_id++, bag, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip4;
 		AlarmManager alarmMgr4 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -543,7 +529,7 @@ public class AddTrip extends FragmentActivity {
 			tip4 = depTimeInMillis - (hour * 8);
 
 		} else {
-			// offset by extra 10 hours so that alarm is during day.
+			// offset by extra 10 hours.
 			tip4 = depTimeInMillis - (hour * 10);
 
 		}
@@ -559,9 +545,8 @@ public class AddTrip extends FragmentActivity {
 		hand.putExtra("type", "note");
 		hand.putExtra("title", getResources().getString(R.string.tip5_title));
 		hand.putExtra("note", getResources().getString(R.string.tip5));
-		PendingIntent sender5 = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, hand,
-				PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent sender5 = PendingIntent.getBroadcast(getApplicationContext(), 
+			inte_id++, hand, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip5;
 		AlarmManager alarmMgr5 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -583,15 +568,12 @@ public class AddTrip extends FragmentActivity {
 		/* end of time for notification 5 */
 
 		/* notification 6 */
-		Intent accomodation = new Intent(getApplicationContext(),
-				AlarmReceiver.class);
+		Intent accomodation = new Intent(getApplicationContext(), AlarmReceiver.class);
 		accomodation.putExtra("type", "note");
-		accomodation.putExtra("title",
-				getResources().getString(R.string.tip6_title));
+		accomodation.putExtra("title", getResources().getString(R.string.tip6_title));
 		accomodation.putExtra("note", getResources().getString(R.string.tip6));
-		PendingIntent sender6 = PendingIntent.getBroadcast(
-				getApplicationContext(), inte_id++, accomodation,
-				PendingIntent.FLAG_ONE_SHOT);
+		PendingIntent sender6 = PendingIntent.getBroadcast(getApplicationContext(), inte_id++, 
+			accomodation, PendingIntent.FLAG_ONE_SHOT);
 
 		long tip6;
 		AlarmManager alarmMgr6 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);

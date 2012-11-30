@@ -51,20 +51,21 @@ public class AlarmReset extends BroadcastReceiver {
 		context2=context;
 		Trip_Database db = new Trip_Database(context);
 		Cursor cursor;
-
+		//open database
 		try {
 			db.open();
-
+			//put on the cursos the trips
 			cursor = db.getAllTrips();
-
+			//if the cursor is not null then go to the first row
 			if (cursor != null) {
 				cursor.moveToFirst();
 			}
-
+			//while there are still something for the cursor to read
 			while (cursor.isAfterLast() == false) {
+			//if the user selected to receive notifications,
 				if (cursor.getString(cursor.getColumnIndex("notification"))
 						.equals("Yes")) {
-
+					//get the  data from the trips
 					String depDateParsed = cursor.getString(
 							cursor.getColumnIndex("departure_date"))
 							.replaceAll("\\s", "");
@@ -101,7 +102,7 @@ public class AlarmReset extends BroadcastReceiver {
 					 */
 					depTempTime = depTimeParsed.split(delimiter);
 					destTempTime = destTimeParsed.split(delimiter);
-
+					//getting the year, month, day and hours from the string
 					depYear = Integer.parseInt(depTempDate[2]);
 					depMonthOfYear = Integer.parseInt(depTempDate[0]);
 					depDayOfMonth = Integer.parseInt(depTempDate[1]);
@@ -113,7 +114,7 @@ public class AlarmReset extends BroadcastReceiver {
 					retDayOfMonth = Integer.parseInt(destTempDate[1]);
 					retHour = Integer.parseInt(destTempTime[0]);
 					retMinute = Integer.parseInt(destTempTime[1]);
-					
+					//passing to the setAlarm method the id of each trip
 					setAlarm(cursor.getInt(cursor.getColumnIndex("_id")));
 
 				}
@@ -129,19 +130,14 @@ public class AlarmReset extends BroadcastReceiver {
 	private void setAlarm(int id) {
 		// making the Intent id unique
 		int inte_id = id * 100;
-		// this variables hold the values that will be used to calculate the
-		// time
+		// this variables hold the values that will be used to calculate the time
 		long hour = AlarmManager.INTERVAL_HOUR;
 		long day = AlarmManager.INTERVAL_DAY;
 		long week = AlarmManager.INTERVAL_DAY * 7;
-		// long DepartureTime=depTimeInMillis-(hour*4); - i don't need this
-		// because i will set the -(hour*4) in the notification times
-		// long ReturnTime=retTimeInMillis-(hour*4);
 
-		// getting the date and time of departure and return to pass to the
-		// AlarmManager
+		// getting the date and time of departure and return to pass to the AlarmManaget
 		Calendar depcal = Calendar.getInstance();
-
+		//getting the data from the trips and putting it into variables
 		depcal.setTimeZone(TimeZone.getTimeZone("GMT"));
 		depcal.set((Calendar.YEAR), depYear);
 		depcal.set((Calendar.MONTH), depMonthOfYear - 1);
@@ -184,7 +180,7 @@ public class AlarmReset extends BroadcastReceiver {
 			tip1Time = depTimeInMillis - (hour * 48);
 
 		} else {
-			// offset by extra 10 hours so that alarm is during day.
+			// offset by extra 10 hours.
 			tip1Time = depTimeInMillis - (hour * 10);
 		}
 		if (tip1Time > System.currentTimeMillis()) {
@@ -258,7 +254,7 @@ public class AlarmReset extends BroadcastReceiver {
 			tip2 = depTimeInMillis - (day * 30);
 
 		} else {
-			// offset by extra 10 hours so that alarm is during day.
+			// offset by extra 10.
 			tip2 = depTimeInMillis - (hour * 10);
 
 		}
@@ -316,7 +312,7 @@ public class AlarmReset extends BroadcastReceiver {
 			tip4 = depTimeInMillis - (hour * 8);
 
 		} else {
-			// offset by extra 10 hours so that alarm is during day.
+			// offset by extra 10 hours.
 			tip4 = depTimeInMillis - (hour * 10);
 
 		}
