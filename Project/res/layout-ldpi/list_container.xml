@@ -50,7 +50,7 @@
         <fragment
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/list_fragment"
-            android:name="mobi.bwize.project.TripListFragment"
+            android:name="mobi.bwize.travelB.TripListFragment"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             tools:layout="@layout/list_trips" >

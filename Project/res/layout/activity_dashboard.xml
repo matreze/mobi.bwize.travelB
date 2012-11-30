@@ -46,7 +46,7 @@
 
         <fragment
             android:id="@+id/frag_1"
-            android:name="mobi.bwize.project.CountDown"
+            android:name="mobi.bwize.travelB.CountDown"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
     </LinearLayout>
@@ -61,7 +61,7 @@
 
         <fragment
             android:id="@+id/frag_2"
-            android:name="mobi.bwize.project.CurrentWeather"
+            android:name="mobi.bwize.travelB.CurrentWeather"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             tools:layout="@layout/activity_main" />
@@ -122,7 +122,7 @@
 
         <fragment
             android:id="@+id/frag_3"
-            android:name="mobi.bwize.project.ToDO"
+            android:name="mobi.bwize.travelB.ToDO"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             tools:layout="@layout/activity_to_do" />

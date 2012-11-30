@@ -36,6 +36,7 @@
     <string name="text_currencytitle">Currency Converter</string>
     <string name="text_currencyenter">Enter the amount to convert:</string>
     <string name="text_todo">To do list</string>
+    <string name="text_countdown">Enjoy your Trip!</string>
     
     <string name="alarm_notice">Your flight departs in 4 hours, it\'s time to go to the airport!</string>
     <string name="alarm_notice_title">FLIGHT COMING</string>
