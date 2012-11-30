@@ -172,7 +172,7 @@ public class AddTrip extends FragmentActivity {
 		// When the country is selected, the second spinner must be populated
 		// with the corresponding cities for that country.
 		countryDep.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
+			
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int position, long id) {
 				// Move the cursor to the position that was selected
@@ -191,7 +191,7 @@ public class AddTrip extends FragmentActivity {
 				setCityDep();
 			}
 
-			@Override
+			
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
@@ -216,7 +216,7 @@ public class AddTrip extends FragmentActivity {
 		// When the country is selected, the second spinner must be populated
 		// with the corresponding cities for that country.
 		countryDest.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
+			
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int position, long id) {
 				// Move the cursor to the position that was selected
@@ -235,7 +235,7 @@ public class AddTrip extends FragmentActivity {
 				setCityDest();
 			}
 
-			@Override
+			
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
@@ -618,7 +618,7 @@ public class AddTrip extends FragmentActivity {
 		// When a city is selected, the value is saved in the class variable for
 		// the city
 		cityDep.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
+			
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int position, long id) {
 				// Get the string value for the city - default value
@@ -630,7 +630,7 @@ public class AddTrip extends FragmentActivity {
 							.getColumnIndex("city_name"));
 				}
 			}
-			@Override
+			
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
@@ -659,7 +659,7 @@ public class AddTrip extends FragmentActivity {
 		// When a city is selected, the value is saved in the class variable for
 		// the city
 		cityDest.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
+			
 			public void onItemSelected(AdapterView<?> arg0, View view,
 					int position, long id) {
 				// Get the string value for the city - default value
@@ -671,7 +671,7 @@ public class AddTrip extends FragmentActivity {
 							.getColumnIndex("city_name"));
 				}
 			}
-			@Override
+			
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});

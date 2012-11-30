@@ -59,7 +59,7 @@ TripListFragment.OnListSelectedListener {
 	}
 
 	// method for action to take when an item is selected
-	@Override
+	
 	public void onListSelected(long id) {
 			Intent showContent = new Intent(getApplicationContext(),
 					DashBoardActivity.class);
