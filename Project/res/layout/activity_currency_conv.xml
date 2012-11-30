@@ -1,10 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/bgroundb"
-    android:orientation="vertical"
-    android:padding="10dp" >
-
+<!-- travelB 2012 - Currency Converter layout  -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bgroundb"
+        android:padding="10dp" >
+        
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
@@ -14,49 +15,47 @@
 
         <ImageButton
             android:id="@+id/imageButton_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:background="@null"
-            android:src="@drawable/back" />
+            style="@style/BackbuttonImage" />
 
         <TextView
             android:id="@+id/textView1"
+            style="@style/Titles"
+            android:text="@string/text_currencytitle" />
+        
+
+        
+    </RelativeLayout> 
+
+
+
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/text_currencytitle"
+            android:text="@string/text_currencyenter"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/curencyInput_xml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/convertButton_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_convert" 
+            android:onClick="setCurrency"/>
+
+        <TextView
+            android:id="@+id/currency_display_xml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_currencyenter"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <EditText
-        android:id="@+id/curencyInput_xml"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/convertButton_xml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="setCurrency"
-        android:text="@string/button_convert" />
-
-    <TextView
-        android:id="@+id/currency_display_xml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-</LinearLayout>
+    </LinearLayout>

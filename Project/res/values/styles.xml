@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppTheme" parent="android:Theme.Light" />
     <style name="Countdown">
@@ -30,5 +30,125 @@
         <item name="android:textColor">#fff</item>
 
     </style>
+    
+        <style name="ToDoButtonStyle">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textSize">15sp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:typeface">monospace</item>
+		<item name="android:background">#000</item>
+		<item name="android:textColor">#cc9900</item>		
+		
+	</style>
+	
+    <style name="Titles">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:layout_centerHorizontal">true</item>
+
+    </style>
+    
+   <style name="BackbuttonImage">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/back</item>
+
+    </style>
+    
+          
+    <style name="DetailsbuttonImage">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/godetails</item>
+
+    </style>
+    
+     <style name="Fraggs">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+
+    </style>
+    
+     <style name="DashRelative">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:gravity">center_horizontal</item>
+
+    </style>
+    
+    <style name="IconHolder">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+
+    </style>
+    
+     <style name="IconWeather">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/weather</item>
+
+    </style>
+    
+     <style name="IconCurrency">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/currency</item>
+
+    </style>
+    
+     <style name="IconWiki">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/wikipedia</item>
+
+    </style>
+    
+	<style name="Dashlayout1">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">#000</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">5dp</item>
+
+    </style>
+    
+	<style name="Dashlayout2">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">#99ccff</item>
+        <item name="android:orientation">vertical</item>
+
+    </style>
+    
+	<style name="Dashlayout3">
+        <item name="android:layout_height">500dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">#99ccff</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:focusableInTouchMode">true</item>
+
+    </style>
+
+
 
 </resources>

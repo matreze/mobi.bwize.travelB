@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- travelB 2012 - Dashboard consiting of three fragments. Countdown, weather, icons and To do list  -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollview"
     android:layout_width="wrap_content"
@@ -13,96 +14,60 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="fill"
-        android:gravity="center_horizontal" >
+        style="@style/DashRelative" >
 
         <ImageButton
             android:id="@+id/imageButton_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:src="@drawable/back" />
+            style="@style/BackbuttonImage" />
 
         <ImageButton
             android:id="@+id/imageButton_Go"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@null"
-            android:onClick="viewDetails"
-            android:src="@drawable/godetails" />
+            style="@style/DetailsbuttonImage"
+            android:onClick="viewDetails" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearlayout01"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:background="#000"
-        android:orientation="vertical"
-        android:padding="5dp" >
-
+        style="@style/Dashlayout1" >
+<!--Fragment 1 for the countdown -->
         <fragment
             android:id="@+id/frag_1"
             android:name="mobi.bwize.travelB.CountDown"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+            style="@style/Fraggs" />
     </LinearLayout>
-
+
+
     <LinearLayout
         android:id="@+id/linearlayout02"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#99ccff"
-        android:orientation="vertical" >
-
+        style="@style/Dashlayout2" >
+
+<!--Fragment 2 for the current weather -->
         <fragment
             android:id="@+id/frag_2"
             android:name="mobi.bwize.travelB.CurrentWeather"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            style="@style/Fraggs"
             tools:layout="@layout/activity_main" />
 
     </LinearLayout>
-
+<!-- Inset icons for further activites -->
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dip"
-        android:gravity="center"
-        android:padding="5dip" >
+        style="@style/IconHolder" >
 
         <ImageButton
             android:id="@+id/imageButton_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:background="@null"
-            android:onClick="weatherTenDay"
-            android:src="@drawable/weather" />
+            style="@style/IconWeather"
+            android:onClick="weatherTenDay" />
 
         <ImageButton
             android:id="@+id/imageButton_wiki"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@null"
-            android:onClick="wiki"
-            android:src="@drawable/wikipedia" />
+            style="@style/IconWiki"
+            android:onClick="wiki"/>
 
         <ImageButton
             android:id="@+id/imageButton_currency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@null"
-            android:onClick="currency"
-            android:src="@drawable/currency" />
+            style="@style/IconCurrency"
+            android:onClick="currency"/>
     </LinearLayout>
 
     <WebView
@@ -110,21 +75,17 @@
         android:id="@+id/wikiView_xml"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-    
+    
+
+
     <LinearLayout
         android:id="@+id/linearlayout03"
-        android:layout_width="fill_parent"
-        android:layout_height="500dp"
-        android:background="#99ccff"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical" >
-
+        style="@style/Dashlayout3" >
+<!--Fragment 1 for the To do list -->
         <fragment
             android:id="@+id/frag_3"
             android:name="mobi.bwize.travelB.ToDO"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            style="@style/Fraggs"
             tools:layout="@layout/activity_to_do" />
     </LinearLayout>
 

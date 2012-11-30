@@ -1,4 +1,4 @@
-
+<!-- travelB 2012 - Currency Converter layout  -->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -15,19 +15,12 @@
 
         <ImageButton
             android:id="@+id/imageButton_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/back" />
+            style="@style/BackbuttonImage" />
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/text_currencytitle"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            style="@style/Titles"
+            android:text="@string/text_currencytitle" />
         
 
         

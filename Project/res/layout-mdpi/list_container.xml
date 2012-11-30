@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- travelB 2012 - Container layout for the List trips page with button to add a new trip  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -49,7 +50,7 @@
         <fragment
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/list_fragment"
-             android:name="mobi.bwize.travelB.TripListFragment"
+            android:name="mobi.bwize.travelB.TripListFragment"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             tools:layout="@layout/list_trips" >

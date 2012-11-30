@@ -1,3 +1,4 @@
+<!-- travelB 2012 - Layout for the To do List fragment    -->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -19,11 +20,11 @@
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
+            style="@style/ToDoButtonStyle"
+            android:layout_alignParentRight="true"
             android:onClick="add"
             android:text="@string/button_todo" />
+
         
         
        </RelativeLayout>

@@ -32,7 +32,6 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -131,9 +130,6 @@ public class WeatherTenDay extends ListActivity {
 					// Get correct drawable for forecast icon
 					int imageResource = getResources().getIdentifier(icon,
 							"drawable", "mobi.bwize.travelB");
-					Log.d("icon", icon);
-					Log.d("day", day);
-					Log.d("forecast", forecast);
 					
 					// adding each child node to HashMap key => value
 					map.put(KEY_DAY, day);
