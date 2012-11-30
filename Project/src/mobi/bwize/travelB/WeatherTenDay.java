@@ -130,7 +130,7 @@ public class WeatherTenDay extends ListActivity {
 
 					// Get correct drawable for forecast icon
 					int imageResource = getResources().getIdentifier(icon,
-							"drawable", "mobi.bwize.project");
+							"drawable", "mobi.bwize.travelB");
 					Log.d("icon", icon);
 					Log.d("day", day);
 					Log.d("forecast", forecast);
